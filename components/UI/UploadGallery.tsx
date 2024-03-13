@@ -42,7 +42,7 @@ const UploadGallery = () => {
   };
 
   const urlCreator = (endpoint: string) => {
-    return `http://localhost:3030${endpoint}`;
+    return `${BACKEND_URL}/${endpoint}`;
   };
 
   return (
