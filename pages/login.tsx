@@ -46,12 +46,15 @@ const LoginPage = () => {
       <Head>
         <title>Herogram Login</title>
       </Head>
+
       <div className="flex justify-center items-center h-screen bg-gray-100">
         <form
           className="bg-white p-8 rounded shadow-md w-96"
           onSubmit={handleLogin}
         >
-          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            Login to begin!
+          </h2>
           {error && <p className="text-red-500 mb-4 text-sm">{error}</p>}
           <div className="mb-4">
             <label
