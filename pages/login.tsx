@@ -15,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
     setError("");
     try {
-      const response = await fetch(`${BACKEND_URL}/login`, {
+      const response = await fetch(`${BACKEND_URL}/api/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

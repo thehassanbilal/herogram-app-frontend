@@ -16,7 +16,7 @@ const UploadGallery = () => {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/images`);
+      const response = await axios.get(`${BACKEND_URL}/api/images`);
       setImages(response.data);
     } catch (error) {
       console.error("Error fetching images:", error);
@@ -25,7 +25,7 @@ const UploadGallery = () => {
 
   const fetchVideos = async () => {
     try {
-      const response = await axios.get(`${BACKEND_URL}/videos`);
+      const response = await axios.get(`${BACKEND_URL}/api/videos`);
       setVideos(response.data);
     } catch (error) {
       console.error("Error fetching videos:", error);
@@ -42,7 +42,7 @@ const UploadGallery = () => {
   };
 
   const urlCreator = (endpoint: string) => {
-    return `${BACKEND_URL}/${endpoint}`;
+    return `${BACKEND_URL}${endpoint}`;
   };
 
   return (

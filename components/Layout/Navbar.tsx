@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { useAuth } from "@/contexts/AuthContext";
+import herogramLogo from "@/public/icons/herogram-logo.png";
+import Image from "next/image";
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
@@ -11,11 +13,18 @@ const Navbar = () => {
       style={{ position: "sticky", top: 0, zIndex: 1000 }}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="flex items-center">
-          <Link className="text-white font-bold text-lg" href="/">
+        <Link className="text-white font-bold text-lg" href="/">
+          <div className="flex items-center gap-2">
+            <Image
+              className="w-12 h-12 border-3 p-1 border-gray-50 border rounded-xl bg-gray-50"
+              src={herogramLogo.src}
+              alt="Herogram logo"
+              height={200}
+              width={200}
+            />
             Herogram App
-          </Link>
-        </div>
+          </div>
+        </Link>
         <div className="flex items-center">
           <Link
             className="text-white px-4 text-sm font-semibold hover:text-blue-200"

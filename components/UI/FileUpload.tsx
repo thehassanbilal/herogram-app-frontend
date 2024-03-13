@@ -20,7 +20,7 @@ const FileUpload = () => {
     formData.append("file", file);
 
     try {
-      const response = await fetch(`${BACKEND_URL}/upload`, {
+      const response = await fetch(`${BACKEND_URL}/api/upload`, {
         method: "POST",
         body: formData,
       });
