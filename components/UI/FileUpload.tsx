@@ -53,8 +53,9 @@ const FileUpload = () => {
               />
               <button
                 type="submit"
-                className="px-10 py-2 mt-3 bg-gray-200 border-gray-400 hover:bg-gray-300 border rounded-lg"
+                className="px-4 flex gap-x-2 py-2 mt-3 bg-gray-200 border-gray-400 hover:bg-gray-300 border rounded-lg"
               >
+                <span>Upload</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

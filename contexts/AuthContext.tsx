@@ -5,6 +5,7 @@ import React, {
   useContext,
   ReactNode,
 } from "react";
+import Cookies from "js-cookie";
 
 interface User {
   id: string;
@@ -36,14 +37,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    const userCookie = Cookies.get("user");
+    if (userCookie) {
+      setIsAuthenticated(true);
+      setUser(JSON.parse(userCookie));
+    }
+  }, []);
+
   const login = (userData: User) => {
     setIsAuthenticated(true);
     setUser(userData);
+    Cookies.set("user", JSON.stringify(userData), { expires: 7 });
   };
 
   const logout = () => {
     setIsAuthenticated(false);
     setUser(null);
+    Cookies.remove("user");
   };
 
   return (

@@ -6,7 +6,10 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
 
   return (
-    <nav className="bg-blue-500 p-4">
+    <nav
+      className="bg-blue-500 p-4"
+      style={{ position: "sticky", top: 0, zIndex: 1000 }}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link className="text-white font-bold text-lg" href="/">
