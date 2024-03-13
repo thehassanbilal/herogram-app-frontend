@@ -48,9 +48,9 @@ const LoginPage = () => {
       </Head>
 
       <TipBox />
-      <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className="flex justify-center items-center py-4">
         <form
-          className="bg-white p-8 rounded shadow-md w-96"
+          className="bg-white p-8 rounded shadow-md border border-gray-400 w-96"
           onSubmit={handleLogin}
         >
           <h2 className="text-2xl font-bold mb-6 text-center">
@@ -106,7 +106,7 @@ const LoginPage = () => {
 const TipBox: FC = () => {
   return (
     <div
-      className={`bg-gray-100 border-t-4 border-gray-500 rounded-b text-gray-900 px-4 py-3 shadow-md`}
+      className={`bg-gray-100 border-2 my-4 w-[30%] m-auto flex items-center justify-center border-gray-500 rounded-lg text-gray-900 px-4 py-4 shadow-md`}
       role="alert"
     >
       <div className="flex justify-center">
@@ -117,8 +117,12 @@ const TipBox: FC = () => {
             </div>
             <span>Tip: Here is a user from Database to login! </span>
           </p>
-          <p className="text-sm">email: joe@herogram.com</p>
-          <p className="text-sm">password: mypassword</p>
+          <p className="text-sm">
+            <b>Email:</b> joe@herogram.com
+          </p>
+          <p className="text-sm">
+            <b>Password:</b> mypassword
+          </p>
         </div>
       </div>
     </div>
