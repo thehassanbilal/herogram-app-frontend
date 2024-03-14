@@ -43,7 +43,8 @@ const UploadGallery = () => {
       await navigator.clipboard.writeText(mediaUrl);
       await notify();
     } catch (error) {
-      console.error("Failed to copy:", error);
+      console.error("Failed to copy to clipboard:", error);
+      alert("Failed to copy to clipboard.");
     }
   };
 
