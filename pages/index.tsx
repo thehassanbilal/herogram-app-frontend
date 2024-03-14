@@ -1,9 +1,9 @@
+import AuthForms from "@/components/UI/AuthForms";
 import FileUpload from "@/components/UI/FileUpload";
 import UploadGallery from "@/components/UI/UploadGallery";
 import { useAuth } from "@/contexts/AuthContext";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import LoginPage from "./login";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function Home() {
         </>
       ) : (
         <>
-          <LoginPage />
+          <AuthForms />
         </>
       )}
     </main>

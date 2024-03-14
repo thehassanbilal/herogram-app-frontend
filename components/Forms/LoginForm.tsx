@@ -4,7 +4,11 @@ import Head from "next/head";
 import { BACKEND_URL } from "@/lib/constants";
 import { useRouter } from "next/router";
 
-const LoginPage = () => {
+interface LoginFormProps {
+  setDisplayLoginForm: (value: React.SetStateAction<boolean>) => void;
+}
+
+const LoginForm: FC<LoginFormProps> = ({ setDisplayLoginForm }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,8 +30,6 @@ const LoginPage = () => {
         }),
       });
 
-      console.log("here is response", response);
-
       if (response.ok) {
         const user = await response.json();
         login(user);
@@ -43,11 +45,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Herogram Login</title>
-      </Head>
-
-      <TipBox />
+      <TestingTipBox />
       <div className="flex justify-center items-center py-4">
         <form
           className="bg-white p-8 rounded shadow-md border border-gray-400 w-96"
@@ -89,6 +87,12 @@ const LoginPage = () => {
               required
             />
           </div>
+          <button
+            className="text-blue-600 text-sm cursor-pointer"
+            onClick={() => setDisplayLoginForm((prev) => !prev)}
+          >
+            Create new account?
+          </button>
           <div className="flex items-center justify-center">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
@@ -103,7 +107,7 @@ const LoginPage = () => {
   );
 };
 
-const TipBox: FC = () => {
+const TestingTipBox: FC = () => {
   return (
     <div
       className={`bg-gray-100 border-2 my-4 w-[30%] m-auto flex items-center justify-center border-gray-500 rounded-lg text-gray-900 px-4 py-4 shadow-md`}
@@ -115,7 +119,7 @@ const TipBox: FC = () => {
             <div className="py-4">
               <IconBulb />
             </div>
-            <span>Tip: Here is a user from Database to login! </span>
+            <span>Testing: Here is a user from Database to login! </span>
           </p>
           <p className="text-sm">
             <b>Email:</b> joe@herogram.com
@@ -143,4 +147,4 @@ function IconBulb(props: any) {
   );
 }
 
-export default LoginPage;
+export default LoginForm;
