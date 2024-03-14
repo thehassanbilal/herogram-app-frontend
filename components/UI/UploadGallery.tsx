@@ -17,7 +17,10 @@ const UploadGallery = () => {
   const fetchImages = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/api/images`);
-      setImages(response.data);
+      const validImages = response.data.filter((image: any) => {
+        return /\.(gif|jpe?g|tiff?|png|webp)$/i.test(image);
+      });
+      setImages(validImages);
     } catch (error) {
       console.error("Error fetching images:", error);
     }
@@ -26,7 +29,10 @@ const UploadGallery = () => {
   const fetchVideos = async () => {
     try {
       const response = await axios.get(`${BACKEND_URL}/api/videos`);
-      setVideos(response.data);
+      const validVideos = response.data.filter((video: any) => {
+        return /\.(mp4|mov|mpeg|avi|flv)$/i.test(video);
+      });
+      setVideos(validVideos);
     } catch (error) {
       console.error("Error fetching videos:", error);
     }

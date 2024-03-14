@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "@/lib/constants";
+import { BACKEND_URL, validFileTypes } from "@/lib/constants";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
@@ -18,14 +18,6 @@ const FileUpload = () => {
       return;
     }
 
-    const validFileTypes = [
-      "image/jpeg",
-      "image/png",
-      "image/gif",
-      "video/mp4",
-      "video/quicktime",
-      "video/mpeg",
-    ];
     if (!validFileTypes.includes(file.type)) {
       console.error(
         "Invalid file type. Please select an image (JPEG, PNG, GIF) or a video (MP4, MOV, MPEG)."
