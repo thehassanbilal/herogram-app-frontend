@@ -1,8 +1,10 @@
 import { BACKEND_URL } from "@/lib/constants";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const FileUpload = () => {
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
+  const router = useRouter();
 
   const handleFileChange = (e: any) => {
     setFile(e.target.files[0]);
@@ -16,6 +18,21 @@ const FileUpload = () => {
       return;
     }
 
+    const validFileTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/gif",
+      "video/mp4",
+      "video/quicktime",
+      "video/mpeg",
+    ];
+    if (!validFileTypes.includes(file.type)) {
+      console.error(
+        "Invalid file type. Please select an image (JPEG, PNG, GIF) or a video (MP4, MOV, MPEG)."
+      );
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
 
@@ -26,7 +43,10 @@ const FileUpload = () => {
       });
 
       const data = await response.json();
-      console.log(data);
+
+      if (data.message === "File uploaded successfully") {
+        router.reload();
+      }
     } catch (error) {
       console.error("Error uploading file:", error);
     }

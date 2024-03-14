@@ -60,13 +60,13 @@ const UploadGallery = () => {
         </div>
         <div className="space-y-4">
           <div className="w-full bg-gray-100 border-gray-300 border p-10 rounded-lg">
-            <h3 className="text-lg font-semibold mb-2">Images</h3>
-            <div className="flex gap-5">
+            <h3 className="text-2xl font-semibold mb-4">Images</h3>
+            <div className="flex flex-wrap gap-5">
               {images.map((image, index) => {
                 return (
                   <div
                     key={index}
-                    className="flex flex-col border border-gray-800 rounded-lg py-6 items-center"
+                    className="flex flex-col border shadow-2xl border-gray-800 rounded-lg py-6 items-center"
                   >
                     <img
                       src={urlCreator(image)}
@@ -85,13 +85,13 @@ const UploadGallery = () => {
             </div>
           </div>
           <div className="w-full bg-gray-100 border-gray-300 border p-10 rounded-lg">
-            <h3 className="text-lg font-semibold mb-2">Videos</h3>
-            <div className="flex rounded-lg">
+            <h3 className="text-2xl font-semibold mb-4">Videos</h3>
+            <div className="flex rounded-lg flex-wrap gap-5">
               {videos && videos.length > 0 ? (
                 videos.map((video, index) => (
                   <div
                     key={index}
-                    className="flex flex-col border border-gray-800 rounded-lg py-6 items-center"
+                    className="flex shadow-2xl flex-col border border-gray-800 rounded-lg px-2 py-6 items-center"
                   >
                     <video controls className="rounded-lg w-40 h-40">
                       <source src={urlCreator(video)} />
